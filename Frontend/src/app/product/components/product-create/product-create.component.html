@@ -1,0 +1,20 @@
+<div class="product-create">
+    <h2>Create Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <label for="name">Product Name:</label>
+        <input id="name" formControlName="name" type="text" />
+
+        <label for="price">Price:</label>
+        <input id="price" formControlName="price" type="number" />
+
+        <label for="description">Description:</label>
+        <input id="description" formControlName="description" type="text" />
+
+        <label for="ownerId">Owner ID:</label>
+        <input id="ownerId" formControlName="ownerId" type="number" />
+
+        <button type="submit" [disabled]="productForm.invalid">Create Product</button>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+</div>

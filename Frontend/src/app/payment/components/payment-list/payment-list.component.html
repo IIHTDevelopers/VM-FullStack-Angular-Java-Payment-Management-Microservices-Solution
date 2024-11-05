@@ -1,0 +1,15 @@
+<div class="payment-list">
+    <h2>Payment List</h2>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <ul *ngIf="payments.length > 0; else noPayments">
+        <li *ngFor="let payment of payments">
+            <strong>Payment ID:</strong> {{ payment.id }} <br />
+            <strong>Total Amount:</strong> {{ payment.totalAmount | currency }} <br />
+            <strong>Payment Method:</strong> {{ payment.paymentMethod }} <br />
+            <strong>Order ID:</strong> {{ payment.orderId }}
+        </li>
+    </ul>
+    <ng-template #noPayments>
+        <p>No payments available.</p>
+    </ng-template>
+</div>

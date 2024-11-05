@@ -1,0 +1,15 @@
+<div class="order-list">
+    <h2>Order List</h2>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <ul *ngIf="orders.length > 0; else noOrders">
+        <li *ngFor="let order of orders">
+            <strong>Order ID:</strong> {{ order.id }} <br />
+            <strong>Total Amount:</strong> {{ order.totalAmount | currency }} <br />
+            <strong>Payment Method:</strong> {{ order.paymentMethod }} <br />
+            <strong>Order Date:</strong> {{ order.orderDate | date }}
+        </li>
+    </ul>
+    <ng-template #noOrders>
+        <p>No orders available.</p>
+    </ng-template>
+</div>

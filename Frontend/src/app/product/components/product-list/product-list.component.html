@@ -1,0 +1,15 @@
+<div class="product-list">
+    <h2>Product List</h2>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <ul *ngIf="products.length > 0; else noProducts">
+        <li *ngFor="let product of products">
+            <strong>Product Name:</strong> {{ product.name }} <br />
+            <strong>Price:</strong> {{ product.price | currency }} <br />
+            <strong>Description:</strong> {{ product.description }} <br />
+            <strong>Owner ID:</strong> {{ product.ownerId }}
+        </li>
+    </ul>
+    <ng-template #noProducts>
+        <p>No products available.</p>
+    </ng-template>
+</div>

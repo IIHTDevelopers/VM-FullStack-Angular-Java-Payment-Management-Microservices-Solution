@@ -1,0 +1,26 @@
+<div class="order-create">
+    <h2>Create Order</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <label for="userId">User ID:</label>
+        <input id="userId" formControlName="userId" type="number" />
+
+        <label for="productIds">Product IDs (comma separated):</label>
+        <input id="productIds" formControlName="productIds" type="text" />
+
+        <label for="totalAmount">Total Amount:</label>
+        <input id="totalAmount" formControlName="totalAmount" type="number" />
+
+        <label for="shippingAddress">Shipping Address:</label>
+        <input id="shippingAddress" formControlName="shippingAddress" type="text" />
+
+        <label for="paymentMethod">Payment Method:</label>
+        <input id="paymentMethod" formControlName="paymentMethod" type="text" />
+
+        <label for="orderDate">Order Date:</label>
+        <input id="orderDate" formControlName="orderDate" type="date" />
+
+        <button type="submit" [disabled]="orderForm.invalid">Create Order</button>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+</div>

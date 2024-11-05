@@ -1,0 +1,23 @@
+<div class="payment-create">
+    <h2>Create Payment</h2>
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <label for="userId">User ID:</label>
+        <input id="userId" formControlName="userId" type="number" />
+
+        <label for="orderId">Order ID:</label>
+        <input id="orderId" formControlName="orderId" type="number" />
+
+        <label for="totalAmount">Total Amount:</label>
+        <input id="totalAmount" formControlName="totalAmount" type="number" />
+
+        <label for="paymentMethod">Payment Method:</label>
+        <input id="paymentMethod" formControlName="paymentMethod" type="text" />
+
+        <label for="creditCardNumber">Credit Card Number:</label>
+        <input id="creditCardNumber" formControlName="creditCardNumber" type="text" />
+
+        <button type="submit" [disabled]="paymentForm.invalid">Create Payment</button>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+</div>
